@@ -1,0 +1,184 @@
+<!doctype html >
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta title="dev">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/css.css">
+    <link rel="stylesheet" href="css/font.css">
+    <link type="text/css" rel="stylesheet" href="./materialize/css/materialize.css" media="screen,projection" />
+    <link rel="stylesheet" href="mdl/material.min.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+</head>
+
+<body style="background-color: #ebebe0; ">
+    <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
+        <header class="mdl-layout__header mdl-layout__header--waterfall">
+            <div class="mdl-layout__header-row"> <span class="mdl-layout-title">dev ++ </span>
+                <div class="mdl-layout-spacer"></div>
+                <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable mdl-textfield--floating-label mdl-textfield--align-right">
+                    <label class="mdl-button mdl-js-button mdl-button--icon" for="waterfall-exp"> <i class="material-icons">search</i> </label>
+                    <div class="mdl-textfield__expandable-holder">
+                        <input class="mdl-textfield__input" type="text" name="sample" id="waterfall-exp"> </div>
+                </div>
+            </div>
+            <div class="mdl-layout-spacer"></div>
+            <div style="width:100%; padding:0px;margin : 0px;position : fixed ;" class="mdl-layout__tab-bar mdl-js-ripple-effect">
+                <div id="container1">
+                    <div id="container2"> <a href="#fixed-tab-1" class="mdl-layout__tab is-active"><i class="material-icons">vibration</i></i></a>
+                        <a href="#fixed-tab-2" class="mdl-layout__tab"> <i class="material-icons">location_on</i></a>
+                        <a href="#fixed-tab-3" class="mdl-layout__tab"> <i class="material-icons">network_wifi</i></a> <a href="#fixed-tab-4" class="mdl-layout__tab"><i class="material-icons">screen_rotation</i></a> <a href="#fixed-tab-5" class="mdl-layout__tab"><i class="material-icons">photo_camera</i></a> <a href="#fixed-tab-6" class="mdl-layout__tab" onclick="info();"><i class="material-icons">perm_device_information</i></a> <a href="#fixed-tab-7" class="mdl-layout__tab"><i class="material-icons">notifications</i></a></div>
+                </div>
+            </div>
+        </header>
+        <div class="mdl-layout__drawer"> <span class="mdl-layout-title">drag the menu </span>
+            <ul class="collection">
+                <li class="collection-item grey lighten-5"> <a width=100% class="waves-effect waves-light btn ">Settings</a></li>
+                <br>
+                <li class="collection-item grey lighten-5"> <a class="waves-effect waves-light btn">Help & Feedback</a></li>
+                <br>
+                <li class="collection-item grey lighten-5"> <a class="waves-effect waves-light btn" href="#modal1" onclick=" $('#modal1').openModal();">About dev++</a></li>
+                <br>
+                <li class="collection-item grey lighten-5"><a class="waves-effect waves-light btn" onclick="Materialize.toast('Contact us : ouni.hani.fcb@gmail.com ', 3000, 'rounded') ;">Contact</a></li>
+            </ul>
+        </div>
+        <main class="mdl-layout__content">
+            <section class="mdl-layout__tab-panel is-active" id="fixed-tab-1">
+                <div class="page-content">
+                    <div class="row" id="vib">
+                        <div class="col s12 m7" style="width:100%">
+                            <div class="card">
+                                <div class="card-image"> <img src="img/vib.png"> </div>
+                                <div class="card-content">
+                                    <p>press the vibration button and enjoy the vibration</p>
+                                </div>
+                                <div class="card-action"> <a class="waves-effect waves-light btn indigo darken-4" onclick="navigator.vibrate(3000);Materialize.toast(' 3 seconds vibration', 3000);">vibrate </a> </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section class="mdl-layout__tab-panel" id="fixed-tab-2">
+                <div class="page-content">
+                    <div class="row" id="vib">
+                        <div class="col s12 m7" style="width:100%">
+                            <div class="card">
+                                <div class="card-image" id="map" style="height : 400px; ;width :100% ;">
+                                    <div style="margin: auto; width: 10%; height : 100%;">
+                                        <div class="mdl-spinner mdl-js-spinner is-active" style=" margin-top : 400%; "></div>
+                                    </div>
+                                </div>
+                                <div class="card-content">
+                                    <p>press locate me to see your location </p>
+                                </div>
+                                <div class="card-action"> <a class="waves-effect waves-light btn indigo darken-4" onclick="scr(); setTimeout(function(){initMap();}, 1000);">locate me <i class="material-icons" style="margin-left : 10px ;">geolocation </i></a> </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section class="mdl-layout__tab-panel" id="fixed-tab-3">
+                <div class="page-content">
+                    <div class="row" id="vib">
+                        <div class="col s12 m7" style="width:100%">
+                            <div class="card">
+                                <div class="card-image"> <img src="./img/net.jpg"> </div>
+                                <div class="card-content">
+                                    <p id="netText"></p>
+                                </div>
+                                <div class="card-action"> <a class="waves-effect waves-light btn indigo darken-4" onclick="checkConnection();">Get network informations</a> </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section class="mdl-layout__tab-panel" id="fixed-tab-4">
+                <div class="page-content">
+                    <div class="row" id="vib">
+                        <div class="col s12 m7" style="width:100%">
+                            <div class="card">
+                                <div class="card-image"> <img src="img/accelerometer.png" style="height : 100 % ; width : 100% ;"> </div>
+                                <div class="card-content">
+                                    <div id="acc"> </div>
+                                </div>
+                                <div class="card-action"> <a class="waves-effect waves-light btn indigo darken-4" id="watchAcceleration">WATCH ACCELERATION</a> </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section class="mdl-layout__tab-panel" id="fixed-tab-5">
+                <div class="page-content">
+                    <div class="row" id="vib">
+                        <div class="col s12 m7" style="width:100%">
+                            <div class="card">
+                                <div class="card-image"> <img src="img/cam.png" id="myImage"> </div>
+                                <div class="card-content">
+                                    <p>enjoy your cam </p>
+                                </div>
+                                <div class="card-action"> <a class="waves-effect waves-light btn indigo darken-4" id="cameraTakePicture" onclick="go(); ">take a picture </a><img id="myImage"></img>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <video></video>
+                </div>
+            </section>
+            <section class="mdl-layout__tab-panel" id="fixed-tab-6">
+                <div class="page-content">
+                    <div class="row" id="vib">
+                        <div class="col s12 m7" style="width:100%">
+                            <div class="card">
+                                <div class="card-image"> <img src="img/info.png"> </div>
+                                <div class="card-content">
+                                    <p>informations about your system </p>
+                                    <br>
+                                    <p id="info"></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section class="mdl-layout__tab-panel" id="fixed-tab-7">
+                <div class="page-content">
+                    <div class="row" id="vib">
+                        <div class="col s12 m7" style="width:100%">
+                            <div class="card">
+                                <div class="card-image"> <img src="img/notification.png"> </div>
+                                <div class="card-content">
+                                    <p>press notify me to get a notification </p>
+                                </div>
+                                <div class="card-action"> <a class="waves-effect waves-light btn indigo darken-4" id="notify" onclick="notify();">notify me</a> </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <footer class="page-footer indigo darken-4">
+                <div class="footer-copyright">
+                    <div class="container"> Contact us : ouni.hani.fcb@gmail.com </div>
+                </div>
+            </footer>
+        </main>
+    </div>
+    <div id="modal1" class="modal bottom-sheet">
+        <div class="modal-content">
+            <h4>dev++</h4>
+            <p>dev++ is a freelance team compsed by two young men : <a href="https://web.facebook.com/hani.ouni1">Heni Ouni </a> & <a href="https://web.facebook.com/hedi22"> Abdelhedy Hlel</a>. please feel free to contact us </p>
+            <h4>about this app</h4>
+            <p> this app is a preview for our future customer . it's a little app using material design , testing some of your device feature and showing some of our capabilities . </p>
+        </div>
+        <div class="modal-footer"> choose dev++ and get your app as soon as possible </div>
+    </div>
+    <script type="text/javascript" src="./js/jquery-2.2.3.min.js"></script>
+    <script src="js/js.js"></script>
+    <script src="cordova.js"></script>
+    <script src="mdl/material.min.js"></script>
+    <script type="text/javascript" src="./materialize/js/materialize.min.js"></script>
+    <script id="gmaps"></script>
+</body>
+
+</html>

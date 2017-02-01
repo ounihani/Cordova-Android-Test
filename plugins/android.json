@@ -1,0 +1,21 @@
+{
+    "prepare_queue": {
+        "installed": [],
+        "uninstalled": []
+    },
+    "config_munge": {
+        "files": {}
+    },
+    "installed_plugins": {
+        "cordova-plugin-camera": {},
+        "cordova-plugin-device": {},
+        "cordova-plugin-device-motion": {},
+        "cordova-plugin-network-information": {},
+        "cordova-plugin-dialogs": {},
+        "cordova-plugin-vibration": {},
+        "im.ltdev.cordova.UserAgent": {},
+        "cordova-plugin-splashscreen": {},
+        "cordova-plugin-geolocation": {}
+    },
+    "dependent_plugins": {}
+}
