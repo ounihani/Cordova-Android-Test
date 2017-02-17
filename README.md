@@ -3,6 +3,8 @@ this app is a hybrid android app build using the intelXDK framework which is bas
 
 
 Screenshots :
+
+
 ![45fdd0947f7fa16ed4fca069fab49beec6e1b54116aeacd682 pimgpsh_fullsize_distr](https://cloud.githubusercontent.com/assets/15878895/23059187/9220e10e-f4f8-11e6-913d-342cc53987ab.jpg)
 
 
